@@ -285,7 +285,24 @@ create-react-app my-crazy-app-name
                 <li>Add state (the list of todos) to your <code>App.js</code> and pass it to <code>TodoList</code></li>
             </ul>
         </section>
-        <section></section>
+        <section>
+            <h2>Controlled components</h2>
+            Normally form state lives in DOM, but to give us more flexibility we can manage form state from within the application
+            by adding the <code>value</code> attribute. 
+            <pre><code class="javascript">
+class NameForm extends Component {
+    state = { email: ''}
+    handleChange = (event) => {
+        this.setState({email: event.target.value})
+    }
+    render() {
+        return (
+            &lt;form type=&quot;text&quot; value={this.state.email} onChange={this.handleChange}\&gt;
+        );
+    }
+}
+            </code></pre>
+        </section>
         <section>
             <h2>Point of View</h2>
             <p>
