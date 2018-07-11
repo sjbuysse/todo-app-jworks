@@ -77,14 +77,14 @@ class HelloMessage extends React.Component {
     render() {
         return (
             &lt;div&gt;
-                Hello {this.props.name}
+                Hello JWorks!
             &lt;/div&gt;
         );
     }
 }
 
 ReactDOM.render(
-    &lt;HelloMessage name=&quot;Taylor&quot;/&gt;,
+    &lt;HelloMessage /&gt;,
     document.getElementById('root')
 );
                 </code></pre>
@@ -146,12 +146,40 @@ class ContactList extends React.Component {
         </section>
         <section>
             <h2>Data flow</h2>
+            <pre><code class="java">
+const people = [
+    {name: 'Michael'},
+    {name: 'Peter'},
+    {name: 'Tyler'}
+]
+
+ReactDom.render(
+    &lt;ContactList people={people}/&gt;,
+    document.getElementById('root')
+)
+
+class ContactList extends React.Component {
+    render() {
+        return (
+            &lt;div&gt;
+                &lt;ol&gt;
+                    {this.props.people.map((person, index) =&gt;
+                        &lt;li key={person.index}&gt;
+                            {person.name}
+                        &lt;/li&gt;
+                    )}
+                &lt;/ol&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+            </code></pre>
         </section>
         <section>
             <section>
                 <h2>A stateful component</h2>
                 Props are read-only, add state for data that should change
-                <pre><code contenteditable>
+                <pre><code contenteditable class="java">
 class ContactList extends React.Component {
     constructor(props) {
         super(props);
@@ -190,7 +218,7 @@ this.setState((prevState) => ({
             </section>
             <section>
                 <h2>A stateful component</h2>
-                <pre class="javascript"><code contenteditable>
+                <pre><code contenteditable>
 class ContactList extends React.Component {
     constructor(props) {
         super(props);
