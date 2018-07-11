@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/ordina.css" id="theme">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/tomorrow.css">
 
     <!-- Printing and PDF exports -->
     <script>
@@ -72,7 +73,7 @@
         <section>
             <section>
                 <h2>A simple component</h2>
-                <pre><code contenteditable>
+                <pre><code class="javascript" contenteditable>
 class HelloMessage extends React.Component {
     render() {
         return (
@@ -91,7 +92,7 @@ ReactDOM.render(
             </section>
             <section>
                 <h2>A component with a list</h2>
-                <pre><code contenteditable>
+                <pre><code class="javascript" contenteditable>
 class ContactList extends React.Component {
     render() {
         const people = [
@@ -114,7 +115,7 @@ ReactDom.render(
             </section>
             <section>
                 <h2>Under the hood</h2>
-                <pre><code contenteditable>
+                <pre><code class="javascript" contenteditable>
 const people = [
     { name: 'Michael' },
     { name: 'Peter' },
@@ -126,7 +127,7 @@ const element = React.createElement('ol', null ,
 		React.createElement('li', {key: index}, person.name);
 );
                 </code></pre>
-                <pre><code contenteditable>
+                <pre><code class="javascript" contenteditable>
 class ContactList extends React.Component {
     render() {
         const people = [
@@ -146,7 +147,7 @@ class ContactList extends React.Component {
         </section>
         <section>
             <h2>Data flow</h2>
-            <pre><code class="java">
+            <pre><code class="javascript">
 const people = [
     {name: 'Michael'},
     {name: 'Peter'},
@@ -179,7 +180,7 @@ class ContactList extends React.Component {
             <section>
                 <h2>A stateful component</h2>
                 Props are read-only, add state for data that should change
-                <pre><code contenteditable class="java">
+                <pre><code contenteditable class="javascript">
 class ContactList extends React.Component {
     constructor(props) {
         super(props);
@@ -206,7 +207,7 @@ class ContactList extends React.Component {
             <section>
                 <h2>setState</h2>
                 Use <code>setState</code> to ensure UI refresh
-                <pre><code>
+                <pre><code class="javascript">
 this.setState({
     username: 'Tyler'
 })
@@ -218,7 +219,7 @@ this.setState((prevState) => ({
             </section>
             <section>
                 <h2>A stateful component</h2>
-                <pre><code contenteditable>
+                <pre><code class="javascript" contenteditable>
 class ContactList extends React.Component {
     constructor(props) {
         super(props);
