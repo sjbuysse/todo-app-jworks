@@ -259,20 +259,121 @@ class ContactList extends React.Component {
         </section>
         <section>
             <h2>Create react app</h2>
-            <pre><code>
+            <pre><code class="nohighlight">
 npm install -g create-react-app
 create-react-app my-crazy-app-name
             </code></pre>
             <ul>
-               <li>
-                   react
-               </li>
+                <li>
+                    react
+                </li>
                 <li>
                     react-dom: for rendering our components specifically for the DOM
                 </li>
                 <li>
                     react-scripts: webpack, webpack-dev-server, babel (transpiling latest JS and JSX)
                 </li>
+            </ul>
+        </section>
+        <section>
+            <h2>Time to get our hands dirty</h2>
+            <ul>
+                <li>create-react-app</li>
+                <li>Remove generated code in <code>App.js</code></li>
+                <li>Create a <code>TodoList</code> component that receives a list of todos (props)</li>
+                <li><code>TodoList</code> should return JSX that displays the received list of todos</li>
+                <li>Add state (the list of todos) to your <code>App.js</code> and pass it to <code>TodoList</code></li>
+            </ul>
+        </section>
+        <section>
+            <section>
+                <h2>Forms</h2>
+
+                <pre><code class="javascript">
+handleSubmit = (e) => {
+    e.preventDefault()
+    // do something (change state, make REST call, etc.)
+}
+
+render() {
+    return (
+        &lt;form onSubmit={this.handleSubmit} className='create-contact-form'&gt;
+            &lt;label for=&quot;name&quot;&gt; Name: &lt;/label&gt;
+            &lt;input type=&quot;text&quot; id=&quot;name&quot;/&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;/&gt;
+        &lt;/form&gt;
+    )
+}
+                </code></pre>
+            </section>
+            <section>
+                <h2>Controlled components</h2>
+                <pre><code class="javascript">
+class NameForm extends Component {
+    state = { email: ''}
+    handleChange = (event) => {
+        this.setState({email: event.target.value})
+    }
+    render() {
+        return (
+            &lt;input type=&quot;text&quot; value={this.state.email} onChange={this.handleChange}\&gt;
+        );
+    }
+}
+            </code></pre>
+                <ul>
+                    <li>Validation</li>
+                    <li>Disable submit</li>
+                    <li>Require certain input format</li>
+                    <li>...</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h2>Lifting the state</h2>
+            Often, several components need to reflect the same changing data.
+            We recommend lifting the shared state up to their closest common ancestor.
+            It's important to take into account the scope of <code>this</code>!
+            <pre><code class="javascript">
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            counter: 0
+        };
+    }
+
+    addOne = () =&gt; {
+        this.setState((prevState) =&gt; ({
+            counter: prevState.counter + 1
+        }))
+    }
+
+    render() {
+        return (
+            &lt;div&gt;
+                {this.state.counter}
+                &lt;ButtonComponent handleClick={this.addOne}/&gt;
+            &lt;/div&gt;
+        );
+    }
+}
+
+class ButtonComponent extends React.Component {
+    render() {
+        return (
+            &lt;button onClick={this.props.handleClick}&gt;Click me!&lt;/button&gt;
+        )
+    }
+}
+            </code></pre>
+        </section>
+        <section>
+            <h2>Time to get our hands dirty - Pt. 2</h2>
+            <ul>
+                <li>Create a CreateTodo component with a form (controlled component)</li>
+                <li>Submitting the form should update the state of our <code>App.js</code></li>
+                <li>After submitting the input field should be cleared</li>
             </ul>
         </section>
         <section>
