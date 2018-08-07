@@ -53,8 +53,6 @@
                 <li>Get your hands dirty</li>
                 <li>Useful libraries</li>
                 <li>Get dirty again</li>
-                <li>ReactJS vs Angular</li>
-                <li>Conclusion</li>
             </ul>
         </section>
 
@@ -64,6 +62,7 @@
                 <li>Library (not framework)</li>
                 <li>UI rendering engine</li>
                 <li>Pair with other technologies</li>
+                <li>Facebook</li>
             </ul>
             <blockquote data-trim data-noescape>It lets you compose complex UIs from small and isolated pieces of code
                 called “components”.
@@ -147,7 +146,7 @@ class ContactList extends React.Component {
         </section>
         <section>
             <h2>Data flow</h2>
-            <pre><code class="javascript">
+            <pre><code class="javascript" contenteditable>
 const people = [
     {name: 'Michael'},
     {name: 'Peter'},
@@ -173,6 +172,35 @@ class ContactList extends React.Component {
             &lt;/div&gt;
         )
     }
+}
+            </code></pre>
+        </section>
+        <section>
+            <h2>Stateless Component</h2>
+            <pre><code class="javascript" contenteditable>
+const people = [
+    {name: 'Michael'},
+    {name: 'Peter'},
+    {name: 'Tyler'}
+]
+
+ReactDom.render(
+    &lt;ContactList people={people}/&gt;,
+    document.getElementById('root')
+)
+
+const ContactList = (props) => {
+        return (
+            &lt;div&gt;
+                &lt;ol&gt;
+                    {props.people.map((person, index) =&gt;
+                        &lt;li key={person.index}&gt;
+                            {person.name}
+                        &lt;/li&gt;
+                    )}
+                &lt;/ol&gt;
+            &lt;/div&gt;
+        )
 }
             </code></pre>
         </section>
@@ -277,12 +305,14 @@ create-react-app my-crazy-app-name
         </section>
         <section>
             <h2>Time to get our hands dirty</h2>
+            <h3>Create a static grocery list</h3>
             <ul>
                 <li>create-react-app</li>
                 <li>Remove generated code in <code>App.js</code></li>
-                <li>Create a <code>TodoList</code> component that receives a list of todos (props)</li>
-                <li><code>TodoList</code> should return JSX that displays the received list of todos</li>
-                <li>Add state (the list of todos) to your <code>App.js</code> and pass it to <code>TodoList</code></li>
+                <li>Create a <code>GroceryList</code> component that receives a list of groceries (props)</li>
+                <li><code>GroceryList</code> should return JSX that displays the received list of groceries</li>
+                <li>Add state (the list of groceries) to your <code>App.js</code> and pass it to <code>GroceryList</code></li>
+                <li>Don't forget to add <code>key</code> to list items</li>
             </ul>
         </section>
         <section>
@@ -371,9 +401,18 @@ class ButtonComponent extends React.Component {
         <section>
             <h2>Time to get our hands dirty - Pt. 2</h2>
             <ul>
-                <li>Create a CreateTodo component with a form (controlled component)</li>
+                <li>Create a CreateGrocery component with a form (controlled component)</li>
                 <li>Submitting the form should update the state of our <code>App.js</code></li>
+                <li>Give the grocery item a unique <code>id</code> like the <code>Date.now()</code></li>
                 <li>After submitting the input field should be cleared</li>
+            </ul>
+        </section>
+        <section>
+            <h2>For the strevers</h2>
+            <ul>
+                <li>Create a delete functionality</li>
+                <li>Sort functionality</li>
+                <li>...</li>
             </ul>
         </section>
         <!-- **********
@@ -381,7 +420,7 @@ class ButtonComponent extends React.Component {
         ********** -->
         <section style="text-align: left;">
             <h2>Thanks for watching!</h2>
-            <p class="fragment">Now kick some ass!</p>
+            <p>Special thanks to Frédéric & Christophe for helping out 🔥🔥🔥</p>
         </section>
 
         <section style="text-align: left;" data-background="img/jworks-wallpaper-3.jpg"></section>
