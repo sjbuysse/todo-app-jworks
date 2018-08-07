@@ -30,7 +30,7 @@ class CreateGrocery extends Component {
                     onChange={this.handleChange}
                     value={this.state.text}
                     className="grocery-input"
-                    placeholder="what needs to be done?"
+                    placeholder="what do we need to buy?"
                 />
                 <button className="green">
                     Add #{this.props.numberOfItems + 1}
