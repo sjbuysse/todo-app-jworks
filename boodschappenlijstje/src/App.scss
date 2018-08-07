@@ -39,7 +39,7 @@ ul {
 
 .grocery-form {
   display: flex;
-  margin: 3rem 0 1rem;
+  margin: 1rem 0;
   & > * {
     line-height: 2rem;
   }
@@ -70,5 +70,13 @@ button {
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
+  }
+}
+
+.sort-buttons {
+  margin-top: 2rem;
+  text-align: center;
+  button {
+    font-size: 1.8rem;
   }
 }

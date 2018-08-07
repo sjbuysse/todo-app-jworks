@@ -2,17 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import GroceryList from "./GroceryList";
 import CreateGrocery from "./CreateGrocery";
+import SortButtons from "./SortButtons";
 
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {items: [
-            {id: 1, text: 'apples'},
-            {id: 2, text: 'bananas'},
-            {id: 3, text: 'pudding'},
-            {id: 4, text: 'beer'},
-            {id: 5, text: 'more beer'},
-        ]};
+        this.state = {items: []};
     }
 
     handleSubmit = (value) => {
@@ -22,6 +17,18 @@ class App extends Component {
         };
         this.setState(prevState => ({
             items: prevState.items.concat(newItem),
+        }));
+    }
+
+    sortAscendingDate = () => {
+        this.setState(prevState => ({
+            items: prevState.items.sort((item1, item2) => item2.id - item1.id)
+        }));
+    }
+
+    sortAscendingAlphabet = () => {
+        this.setState(prevState => ({
+            items: prevState.items.sort((item1, item2) => item1.text.localeCompare(item2.text))
         }));
     }
 
@@ -36,6 +43,7 @@ class App extends Component {
             <div className="app-wrapper">
                 <h3 className="title">GROCERIES</h3>
                 <div className="list-wrapper">
+                    <SortButtons onSortDate={this.sortAscendingDate} onSortAlphabet={this.sortAscendingAlphabet}/>
                     <CreateGrocery handleSubmit={this.handleSubmit} numberOfItems={this.state.items.length}/>
                     <GroceryList onDelete={this.deleteItem} items={this.state.items}/>
                 </div>
