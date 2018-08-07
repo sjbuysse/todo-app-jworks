@@ -41,7 +41,7 @@ class App extends Component {
     render() {
         return (
             <div className="app-wrapper">
-                <h3 className="title">GROCERIES</h3>
+                <h3 className="title">🔥🔥🔥 GROCERIES 🔥🔥🔥</h3>
                 <div className="list-wrapper">
                     <SortButtons onSortDate={this.sortAscendingDate} onSortAlphabet={this.sortAscendingAlphabet}/>
                     <CreateGrocery handleSubmit={this.handleSubmit} numberOfItems={this.state.items.length}/>
