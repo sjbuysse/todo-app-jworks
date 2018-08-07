@@ -1,7 +1,7 @@
-.app-wrapper {
+.center-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .title {
@@ -30,27 +30,3 @@ ul {
   }
 }
 
-.grocery-form > * {
-  line-height: 2rem;
-}
-
-.grocery-input {
-  width: 190px;
-  margin: 3rem 0 1rem;
-  padding-left: 0.5rem;
-}
-
-button {
-  border: 0;
-  padding-top: 2px;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  &.green {
-    background-color: #229022;
-  }
-  &.red {
-    background-color: tomato;
-  }
-}
