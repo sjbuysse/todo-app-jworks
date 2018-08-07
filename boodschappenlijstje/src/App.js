@@ -8,10 +8,10 @@ class App extends Component {
         super(props);
         this.state = {items: [
             {id: 1, text: 'apples'},
-            {id: 1, text: 'bananas'},
-            {id: 1, text: 'pudding'},
-            {id: 1, text: 'beer'},
-            {id: 1, text: 'more beer'},
+            {id: 2, text: 'bananas'},
+            {id: 3, text: 'pudding'},
+            {id: 4, text: 'beer'},
+            {id: 5, text: 'more beer'},
         ]};
     }
 
