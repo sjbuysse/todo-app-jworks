@@ -35,7 +35,7 @@ class App extends Component {
         return (
             <div className="app-wrapper">
                 <h3 className="title">GROCERIES</h3>
-                <div>
+                <div className="list-wrapper">
                     <CreateGrocery handleSubmit={this.handleSubmit} numberOfItems={this.state.items.length}/>
                     <GroceryList onDelete={this.deleteItem} items={this.state.items}/>
                 </div>

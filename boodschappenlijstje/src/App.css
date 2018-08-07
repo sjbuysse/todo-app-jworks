@@ -20,19 +20,24 @@ ul {
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  width: 300px;
+  width: 100%;
   line-height: 1rem; }
   .list-item:not(:last-child) {
     border-bottom: 1px dashed gray; }
   .list-item p {
     flex-grow: 1; }
 
-.grocery-form > * {
-  line-height: 2rem; }
+.list-wrapper {
+  width: 300px; }
+
+.grocery-form {
+  display: flex;
+  margin: 3rem 0 1rem; }
+  .grocery-form > * {
+    line-height: 2rem; }
 
 .grocery-input {
-  width: 190px;
-  margin: 3rem 0 1rem;
+  flex-grow: 1;
   padding-left: 0.5rem; }
 
 button {
@@ -43,7 +48,8 @@ button {
   text-decoration: none;
   display: inline-block; }
   button.green {
-    background-color: #229022; }
+    background-color: #229022;
+    flex-grow: 0; }
   button.delete {
     display: flex;
     flex-grow: 0;
