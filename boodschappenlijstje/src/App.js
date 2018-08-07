@@ -25,13 +25,19 @@ class App extends Component {
         }));
     }
 
+    deleteItem = (id) => {
+        this.setState(prevState => ({
+            items: prevState.items.filter(item => item.id !== id),
+        }));
+    }
+
     render() {
         return (
             <div className="app-wrapper">
                 <h3 className="title">GROCERIES</h3>
                 <div>
                     <CreateGrocery handleSubmit={this.handleSubmit} numberOfItems={this.state.items.length}/>
-                    <GroceryList items={this.state.items}/>
+                    <GroceryList onDelete={this.deleteItem} items={this.state.items}/>
                 </div>
             </div>
         );
