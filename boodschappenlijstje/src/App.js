@@ -17,7 +17,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h3 className="title">GROCERIES</h3>
+                <h3 className="title">🔥🔥🔥     GROCERIES     🔥🔥🔥</h3>
                 <div className="center-container">
                     <GroceryList items={this.state.items}/>
                 </div>
