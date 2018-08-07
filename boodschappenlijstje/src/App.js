@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import GroceryList from "./GroceryList";
+import CreateGrocery from "./CreateGrocery";
 
 class App extends Component {
     constructor(props) {
@@ -14,11 +15,22 @@ class App extends Component {
         ]};
     }
 
+    handleSubmit = (value) => {
+        const newItem = {
+            text: value,
+            id: Date.now()
+        };
+        this.setState(prevState => ({
+            items: prevState.items.concat(newItem),
+        }));
+    }
+
     render() {
         return (
-            <div>
+            <div className="app-wrapper">
                 <h3 className="title">🔥🔥🔥     GROCERIES     🔥🔥🔥</h3>
-                <div className="center-container">
+                <div>
+                    <CreateGrocery handleSubmit={this.handleSubmit} numberOfItems={this.state.items.length}/>
                     <GroceryList items={this.state.items}/>
                 </div>
             </div>
