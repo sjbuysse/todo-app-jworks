@@ -1,0 +1,32 @@
+.center-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.title {
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  background-color: #eeeeee;
+  color: #6C7A89;
+  line-height: 3rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list-item {
+  text-align: center;
+  padding: 0 3rem;
+  line-height: 1rem;
+  &:not(:last-child) {
+    border-bottom: 1px dashed gray;
+  }
+  span {
+    padding-left: 1rem;
+  }
+}
+
