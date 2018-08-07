@@ -16,13 +16,16 @@ ul {
   padding: 0; }
 
 .list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   text-align: center;
-  padding: 0 3rem;
+  width: 300px;
   line-height: 1rem; }
   .list-item:not(:last-child) {
     border-bottom: 1px dashed gray; }
-  .list-item span {
-    padding-left: 1rem; }
+  .list-item p {
+    flex-grow: 1; }
 
 .grocery-form > * {
   line-height: 2rem; }
@@ -41,7 +44,14 @@ button {
   display: inline-block; }
   button.green {
     background-color: #229022; }
-  button.red {
-    background-color: tomato; }
+  button.delete {
+    display: flex;
+    flex-grow: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: tomato;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%; }
 
 /*# sourceMappingURL=App.css.map */
