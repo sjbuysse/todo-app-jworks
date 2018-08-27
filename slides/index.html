@@ -62,11 +62,28 @@
                 <li>Library (not framework)</li>
                 <li>UI rendering engine</li>
                 <li>Pair with other technologies</li>
-                <li>Facebook</li>
+                <li>Facebook (BSD licence -> MIT)</li>
             </ul>
             <blockquote data-trim data-noescape>It lets you compose complex UIs from small and isolated pieces of code
                 called “components”.
             </blockquote>
+            <aside  class="notes">
+                Before that, Facebook was using their own custom “BSD+Patents” license. This was similar to the widely-used BSD license,
+                but also included a clause that basically said: “you can’t sue Facebook for infringing on your patents.”
+                <br /><strong>Wordpress</strong> en <strong>Apache</strong> zeiden dat ze nooit react zouden gebruiken met dat license
+                <ul>
+                   <li>
+                       Redux om je front-end statemanagement te verbeteren,
+                   </li>
+                    <li>
+                        React router om de navigatie te regelen.
+                    </li>
+                    <li>
+                        Libraries voor dependency injection te verkrijgen.
+                    </li>
+                </ul>
+                => dingen die allemaal in Angular ingebakken zijn, maar waar je dus ook meer flexibiliteit in krijgt.
+            </aside>
         </section>
 
         <section>
@@ -88,6 +105,75 @@ ReactDOM.render(
     document.getElementById('root')
 );
                 </code></pre>
+                <aside class="notes">
+                    Een react component maken is zeer simpel, je moet:
+                    <ul>
+                        <li>
+                            de Component class overerven
+                        </li>
+                        <li>
+                            een render() methode implementeren die HTML terug geeft
+                        </li>
+                    </ul>
+                </aside>
+            </section>
+            <section>
+                <h2>Nesting</h2>
+                <pre><code class="javascript" contenteditable>
+class HelloMessage extends React.Component {
+    render() {
+        return (
+            &lt;div&gt;
+                Hello JWorks!
+            &lt;/div&gt;
+        );
+    }
+}
+class ByeMessage extends React.Component {
+    render() {
+        return (
+            &lt;div&gt;
+                Bye JWorks!
+            &lt;/div&gt;
+        );
+    }
+}
+class Letter extends React.Component {
+    render() {
+        return (
+            &lt;div&gt;
+                &lt;HelloMessage /&gt;
+                &lt;ByeMessage /&gt;
+            &lt;/div&gt;
+        );
+    }
+}
+ReactDOM.render(
+    &lt;Letter /&gt;,
+    document.getElementById('root')
+);
+                </code></pre>
+                <aside class="notes">
+                    Je kan de component nesten en de parent aan de root node toevoegen
+                </aside>
+            </section>
+            <section>
+                <h2>Conditional rendering</h2>
+                <pre><code class="javascript" contenteditable>
+render() {
+    const isLoggedIn = this.state.isLoggedIn;
+
+    return {isLoggedIn
+        ? &lt;LogoutButton onClick={this.handleLogoutClick} /&gt;
+        : &lt;LoginButton onClick={this.handleLoginClick} /&gt;}
+}
+                </code></pre>
+                <aside class="notes">
+                    Je kan ook javascript gebruiken om je return statement op te bouwen.
+                    <br />Door curly braces te gebruiken geef je aan dat je javascript aan het schrijven bent.
+                    <br />Zo zie je in dit voorbeeld dat al naargelang de isLoggedIn property een verschillend statement terug
+                    gegeven zal worden.
+                </aside>
             </section>
             <section>
                 <h2>A component with a list</h2>
@@ -99,11 +185,11 @@ class ContactList extends React.Component {
             { name: 'Peter' },
             { name: 'Tyler' }
         ]
-        return &lt;ol&gt;
+        return (&lt;ul&gt;
             {people.map((person, index) =>
-                &lt;li key={person.idex}&gt;{person.name}&lt;/li&gt;
+                (&lt;li key={person.idex}&gt;{person.name}&lt;/li&gt;
             )}
-            &lt;/ol&gt;
+            &lt;/ul&gt;)
     }
 }
 ReactDom.render(
@@ -111,6 +197,13 @@ ReactDom.render(
 	document.getElementById('root')
 )
                 </code></pre>
+                <aside class="notes">
+                    Om een lijst te maken, kan je een array van list items terug geven.
+                    Dit voorbeeld zal dus een unordered list terug geven met een list item
+                    voor elke naam.
+                    <br/>merk ook hier de <strong>curly braces</strong> op.
+                    <strong>Het kan misschien raar lijken dat je javascript en HTML zo mengt, daarom leg ik even uit wat er onder de hood gebeurt!</strong>
+                </aside>
             </section>
             <section>
                 <h2>Under the hood</h2>
@@ -142,6 +235,14 @@ class ContactList extends React.Component {
     }
 }
                 </code></pre>
+                <aside class="notes">
+                    Eigenlijk zou je react kunnen schrijven zonder enige html tags erin te mengen.
+                    Wat er gebeurt is dat we de <strong>createElement</strong> methode gebruiken om
+                    DOM elementen te maken. Zoals je ziet is dit een beetje lastig om zo allemaal je HTML elementen te creeeren.
+                    Daarom heeft men JSX gemaakt, wat eigenlijk een extensie is op JS. Zo kunnen we gewone tags zoals
+                    de <strong>div-tag</strong> gebruiken ipv telkens die createElement functie aan te roepen.
+                    <br />Achter de schermen wordt alles terug getranspileerd naar gewone JS.
+                </aside>
             </section>
         </section>
         <section>
@@ -302,6 +403,10 @@ create-react-app my-crazy-app-name
                     react-scripts: webpack, webpack-dev-server, babel (transpiling latest JS and JSX)
                 </li>
             </ul>
+            <aside>
+                create-react-app is een node package van facebook om een basic react app te scaffolden met minimale libraries.
+                het installeert react, react-dom, ...
+            </aside>
         </section>
         <section>
             <h2>Time to get our hands dirty</h2>
@@ -311,8 +416,9 @@ create-react-app my-crazy-app-name
                 <li>Remove generated code in <code>App.js</code></li>
                 <li>Create a <code>GroceryList</code> component that receives a list of groceries (props)</li>
                 <li><code>GroceryList</code> should return JSX that displays the received list of groceries</li>
-                <li>Add state (the list of groceries) to your <code>App.js</code> and pass it to <code>GroceryList</code></li>
-                <li>Don't forget to add <code>key</code> to list items</li>
+                <li>Add state (a list of groceries) to your <code>App.js</code>, add <code>GroceryList</code>
+                    as a child of the <code>App</code> component, and pass it the list of groceries as an attribute</li>
+                <li>Don't forget to add a <code>key</code> attribute to list items</li>
             </ul>
         </section>
         <section>
