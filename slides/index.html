@@ -26,73 +26,75 @@
 </head>
 
 <body>
-<div class="reveal">
-    <div class="slides">
-        <section>
-            <h1>ReactJS</h1>
-            <!--<h3>The start of all our presentations</h3>-->
-            <img src="img/jworks-logo.png" style="vertical-align: bottom;" width="22.5%"/>
-        </section>
-
-        <section>
-            <h2>Hi, we are Simon and Ivar.</h2>
-            <p>
-                Developer<br/>
-                Ordina Belgium<br/>
-                https://github.com/ivarvh<br/>
-                https://github.com/sjbuysse
-            </p>
-        </section>
-
-        <section>
-            <h2>Agenda</h2>
-            <ul>
-                <li>What is ReactJS?</li>
-                <li>The basics</li>
-                <li>Examples</li>
-                <li>Get your hands dirty</li>
-                <li>Forms & good practices</li>
-                <li>Get dirty again</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>What is ReactJS</h2>
-            <ul>
-                <li>Library (not framework)</li>
-                <li>UI rendering engine</li>
-                <li>Pair with other technologies</li>
-                <li>Facebook (custom BSD licence -> MIT)</li>
-                <li>React Native</li>
-            </ul>
-            <blockquote data-trim data-noescape>It lets you compose complex UIs from small and isolated pieces of code
-                called “components”.
-            </blockquote>
-            <aside  class="notes">
-                Before that, Facebook was using their own custom “BSD+Patents” license. This was similar to the widely-used BSD license,
-                but also included a clause that basically said: “you can’t sue Facebook for infringing on your patents.”
-                <br /><strong>Wordpress</strong> en <strong>Apache</strong> zeiden dat ze nooit react zouden gebruiken met dat license
-                <br />niet write once, run anywhyere maar <strong>learn once, write anywhere</strong>
-                <ul>
-                   <li>
-                       Redux om je front-end statemanagement te verbeteren,
-                   </li>
-                    <li>
-                        React router om de navigatie te regelen.
-                    </li>
-                    <li>
-                        Libraries voor dependency injection te verkrijgen.
-                    </li>
-                </ul>
-                => dingen die allemaal in Angular ingebakken zijn, maar waar je dus ook meer flexibiliteit in krijgt.
-
-            </aside>
-        </section>
-
-        <section>
+    <div class="reveal">
+        <div class="slides">
             <section>
-                <h2>A simple component</h2>
-                <pre><code class="javascript" contenteditable>
+                <h1>ReactJS</h1>
+                <!--<h3>The start of all our presentations</h3>-->
+                <img src="img/jworks-logo.png" style="vertical-align: bottom;" width="22.5%" />
+            </section>
+
+            <section>
+                <h2>Hi, we are Simon and Ivar.</h2>
+                <p>
+                    Developer
+                    <br/> Ordina Belgium
+                    <br/> https://github.com/ivarvh
+                    <br/> https://github.com/sjbuysse
+                </p>
+            </section>
+
+            <section>
+                <h2>Agenda</h2>
+                <ul>
+                    <li>What is ReactJS?</li>
+                    <li>The basics</li>
+                    <li>Examples</li>
+                    <li>Get your hands dirty</li>
+                    <li>Forms & good practices</li>
+                    <li>Get dirty again</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>What is ReactJS</h2>
+                <ul>
+                    <li>Library (not framework)</li>
+                    <li>UI rendering engine</li>
+                    <li>Pair with other technologies</li>
+                    <li>Facebook (custom BSD licence -> MIT)</li>
+                    <li>React Native</li>
+                </ul>
+                <blockquote data-trim data-noescape>It lets you compose complex UIs from small and isolated pieces of code called “components”.
+                </blockquote>
+                <aside class="notes">
+                    Before that, Facebook was using their own custom “BSD+Patents” license. This was similar to the widely-used BSD license,
+                    but also included a clause that basically said: “you can’t sue Facebook for infringing on your patents.”
+                    <br />
+                    <strong>Wordpress</strong> en
+                    <strong>Apache</strong> zeiden dat ze nooit react zouden gebruiken met dat license
+                    <br />niet write once, run anywhyere maar
+                    <strong>learn once, write anywhere</strong>
+                    <ul>
+                        <li>
+                            Redux om je front-end statemanagement te verbeteren,
+                        </li>
+                        <li>
+                            React router om de navigatie te regelen.
+                        </li>
+                        <li>
+                            Libraries voor dependency injection te verkrijgen.
+                        </li>
+                    </ul>
+                    => dingen die allemaal in Angular ingebakken zijn, maar waar je dus ook meer flexibiliteit in krijgt.
+
+                </aside>
+            </section>
+
+            <section>
+                <section>
+                    <h2>A simple component</h2>
+                    <pre><code class="javascript" contenteditable>
 class HelloMessage extends React.Component {
     render() {
         return (
@@ -108,21 +110,21 @@ ReactDOM.render(
     document.getElementById('root')
 );
                 </code></pre>
-                <aside class="notes">
-                    Een react component maken is zeer simpel, je moet:
-                    <ul>
-                        <li>
-                            de Component class overerven
-                        </li>
-                        <li>
-                            een render() methode implementeren die HTML terug geeft
-                        </li>
-                    </ul>
-                </aside>
-            </section>
-            <section>
-                <h2>Nesting</h2>
-                <pre><code class="javascript" contenteditable>
+                    <aside class="notes">
+                        Een react component maken is zeer simpel, je moet:
+                        <ul>
+                            <li>
+                                de Component class overerven
+                            </li>
+                            <li>
+                                een render() methode implementeren die HTML terug geeft
+                            </li>
+                        </ul>
+                    </aside>
+                </section>
+                <section>
+                    <h2>Nesting</h2>
+                    <pre><code class="javascript" contenteditable>
 class HelloMessage extends React.Component {
     render() {
         return (
@@ -156,13 +158,13 @@ ReactDOM.render(
     document.getElementById('root')
 );
                 </code></pre>
-                <aside class="notes">
-                    Je kan de component nesten en de parent aan de root node toevoegen
-                </aside>
-            </section>
-            <section>
-                <h2>Conditional rendering</h2>
-                <pre><code class="javascript" contenteditable>
+                    <aside class="notes">
+                        Je kan de component nesten en de parent aan de root node toevoegen
+                    </aside>
+                </section>
+                <section>
+                    <h2>Conditional rendering</h2>
+                    <pre><code class="javascript" contenteditable>
 render() {
     const isLoggedIn = this.state.isLoggedIn;
 
@@ -171,16 +173,16 @@ render() {
         : &lt;LoginButton onClick={this.handleLoginClick} /&gt;}
 }
                 </code></pre>
-                <aside class="notes">
-                    Je kan ook javascript gebruiken om je return statement op te bouwen.
-                    <br />Door curly braces te gebruiken geef je aan dat je javascript aan het schrijven bent.
-                    <br />Zo zie je in dit voorbeeld dat al naargelang de isLoggedIn property een verschillend statement terug
-                    gegeven zal worden.
-                </aside>
-            </section>
-            <section>
-                <h2>A component with a list</h2>
-                <pre><code class="javascript" contenteditable>
+                    <aside class="notes">
+                        Je kan ook javascript gebruiken om je return statement op te bouwen.
+                        <br />Door curly braces te gebruiken geef je aan dat je javascript aan het schrijven bent.
+                        <br />Zo zie je in dit voorbeeld dat al naargelang de isLoggedIn property een verschillend statement terug
+                        gegeven zal worden.
+                    </aside>
+                </section>
+                <section>
+                    <h2>A component with a list</h2>
+                    <pre><code class="javascript" contenteditable>
 class ContactList extends React.Component {
     render() {
         const people = [
@@ -200,17 +202,18 @@ ReactDom.render(
 	document.getElementById('root')
 )
                 </code></pre>
-                <aside class="notes">
-                    Om een lijst te maken, kan je een array van list items terug geven.
-                    Dit voorbeeld zal dus een unordered list terug geven met een list item
-                    voor elke naam.
-                    <br/>merk ook hier de <strong>curly braces</strong> op.
-                    <strong>Het kan misschien raar lijken dat je javascript en HTML zo mengt, daarom leg ik even uit wat er onder de hood gebeurt!</strong>
-                </aside>
-            </section>
-            <section>
-                <h2>Under the hood</h2>
-                <pre><code class="javascript" contenteditable>
+                    <aside class="notes">
+                        Om een lijst te maken, kan je een array van list items terug geven. Dit voorbeeld zal dus een unordered list terug geven
+                        met een list item voor elke naam.
+                        <br/>merk ook hier de
+                        <strong>curly braces</strong> op.
+                        <strong>Het kan misschien raar lijken dat je javascript en HTML zo mengt, daarom leg ik even uit wat er onder
+                            de hood gebeurt!</strong>
+                    </aside>
+                </section>
+                <section>
+                    <h2>Under the hood</h2>
+                    <pre><code class="javascript" contenteditable>
 const people = [
     { name: 'Michael' },
     { name: 'Peter' },
@@ -222,7 +225,7 @@ const element = React.createElement('ol', null ,
 		React.createElement('li', {key: index}, person.name);
 );
                 </code></pre>
-                <pre><code class="javascript" contenteditable>
+                    <pre><code class="javascript" contenteditable>
 class ContactList extends React.Component {
     render() {
         const people = [
@@ -238,19 +241,20 @@ class ContactList extends React.Component {
     }
 }
                 </code></pre>
-                <aside class="notes">
-                    Eigenlijk zou je react kunnen schrijven zonder enige html tags erin te mengen.
-                    Wat er gebeurt is dat we de <strong>createElement</strong> methode gebruiken om
-                    DOM elementen te maken. Zoals je ziet is dit een beetje lastig om zo allemaal je HTML elementen te creeeren.
-                    Daarom heeft men JSX gemaakt, wat eigenlijk een extensie is op JS. Zo kunnen we gewone tags zoals
-                    de <strong>div-tag</strong> gebruiken ipv telkens die createElement functie aan te roepen.
-                    <br />Achter de schermen wordt alles terug getranspileerd naar gewone JS.
-                </aside>
+                    <aside class="notes">
+                        Eigenlijk zou je react kunnen schrijven zonder enige html tags erin te mengen. Wat er gebeurt is dat we de
+                        <strong>createElement</strong> methode gebruiken om DOM elementen te maken. Zoals je ziet is dit een beetje
+                        lastig om zo allemaal je HTML elementen te creeeren. Daarom heeft men JSX gemaakt, wat eigenlijk
+                        een extensie is op JS. Zo kunnen we gewone tags zoals de
+                        <strong>div-tag</strong> gebruiken ipv telkens die createElement functie aan te roepen.
+                        <br />Achter de schermen wordt alles terug getranspileerd naar gewone JS.
+                    </aside>
+                </section>
             </section>
-        </section>
-        <section>
-            <h2>Data flow</h2>
-            <pre><code class="javascript" contenteditable>
+
+            <section>
+                <h2>Data flow</h2>
+                <pre><code class="javascript" contenteditable>
 const people = [
     {name: 'Michael'},
     {name: 'Peter'},
@@ -278,10 +282,20 @@ class ContactList extends React.Component {
     }
 }
             </code></pre>
-        </section>
-        <section>
-            <h2>Stateless Component</h2>
-            <pre><code class="javascript" contenteditable>
+                <aside class="notes">
+                    - Data via HTML attributes.
+                    <br/> - Data van boven naar beneden
+                    <br/> - Beschikbaar op props
+                    <br/> - Functional Components of Dumb components
+                    <br/> - Smart components of container components
+                    <br/>
+                </aside>
+
+            </section>
+
+            <section>
+                <h2>Stateless Component</h2>
+                <pre><code class="javascript" contenteditable>
 const people = [
     {name: 'Michael'},
     {name: 'Peter'},
@@ -307,12 +321,25 @@ const ContactList = (props) => {
         )
 }
             </code></pre>
-        </section>
-        <section>
+
+                <aside class="notes">
+                    - Props read only
+                    <br/> - Props aanpassen = useless
+                    <br/> - Props komt van parent
+                    <br/> - State = field op component
+                    <br/> - Functional comps = stateless
+                    <br/> - setState
+                    <br/> - 2 implementaties
+                    <br/> - Voorbeeldje uitleggen
+                    <br/>
+                </aside>
+            </section>
+
             <section>
-                <h2>A stateful component</h2>
-                Props are read-only, add state for data that should change
-                <pre><code contenteditable class="javascript">
+                <section>
+                    <h2>A stateful component</h2>
+                    Props are read-only, add state for data that should change
+                    <pre><code contenteditable class="javascript">
 class ContactList extends React.Component {
     constructor(props) {
         super(props);
@@ -335,11 +362,23 @@ class ContactList extends React.Component {
 }
 
                 </code></pre>
-            </section>
-            <section>
-                <h2>setState</h2>
-                Use <code>setState</code> to ensure UI refresh
-                <pre><code class="javascript">
+                    <aside class="notes">
+                        - Props read only
+                        <br/> - Props aanpassen = useless
+                        <br/> - Props komt van parent
+                        <br/> - State = field op component
+                        <br/> - Functional comps = stateless
+                        <br/> - setState
+                        <br/> - 2 implementaties
+                        <br/> - Voorbeeldje uitleggen
+                        <br/>
+                    </aside>
+                </section>
+                <section>
+                    <h2>setState</h2>
+                    Use
+                    <code>setState</code> to ensure UI refresh
+                    <pre><code class="javascript">
 this.setState({
     username: 'Tyler'
 })
@@ -348,10 +387,22 @@ this.setState((prevState) => ({
     count: prevState.count + 1
 }))
                 </code></pre>
-            </section>
-            <section>
-                <h2>A stateful component</h2>
-                <pre><code class="javascript" contenteditable>
+                    <aside class="notes">
+                        - Props read only
+                        <br/> - Props aanpassen = useless
+                        <br/> - Props komt van parent
+                        <br/> - State = field op component
+                        <br/> - Functional comps = stateless
+                        <br/> - setState
+                        <br/> - 2 implementaties
+                        <br/> - Voorbeeldje uitleggen
+                        <br/>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>A stateful component</h2>
+                    <pre><code class="javascript" contenteditable>
 class ContactList extends React.Component {
     constructor(props) {
         super(props);
@@ -387,48 +438,69 @@ class ContactList extends React.Component {
 }
 
                 </code></pre>
+
+                    <aside class="notes">
+                        - Props read only
+                        <br/> - Props aanpassen = useless
+                        <br/> - Props komt van parent
+                        <br/> - State = field op component
+                        <br/> - Functional comps = stateless
+                        <br/> - setState
+                        <br/> - 2 implementaties
+                        <br/> - Voorbeeldje uitleggen
+                        <br/>
+                    </aside>
+                </section>
             </section>
-        </section>
-        <section>
-            <h2>Create react app</h2>
-            <pre><code class="nohighlight">
+
+            <section>
+                <h2>Create react app</h2>
+                <pre><code class="nohighlight">
 npm install -g create-react-app
 create-react-app my-crazy-app-name
             </code></pre>
-            <ul>
-                <li>
-                    react
-                </li>
-                <li>
-                    react-dom: for rendering our components specifically for the DOM
-                </li>
-                <li>
-                    react-scripts: webpack, webpack-dev-server, babel (transpiling latest JS and JSX)
-                </li>
-            </ul>
-            <aside class="notes">
-                create-react-app is een node package van facebook om een basic react app te scaffolden met minimale libraries.
-                het installeert react, react-dom, ...
-            </aside>
-        </section>
-        <section>
-            <h2>Time to get our hands dirty</h2>
-            <h3>Create a static grocery list</h3>
-            <ul>
-                <li>create-react-app</li>
-                <li>Remove generated code in <code>App.js</code></li>
-                <li>Create a <code>GroceryList</code> component that receives a list of groceries (props)</li>
-                <li><code>GroceryList</code> should return JSX that displays the received list of groceries</li>
-                <li>Add state (a list of groceries) to your <code>App.js</code>, add <code>GroceryList</code>
-                    as a child of the <code>App</code> component, and pass it the list of groceries as an attribute</li>
-                <li>Don't forget to add a <code>key</code> attribute to list items</li>
-            </ul>
-        </section>
-        <section>
-            <section>
-                <h2>Forms</h2>
+                <ul>
+                    <li>
+                        react
+                    </li>
+                    <li>
+                        react-dom: for rendering our components specifically for the DOM
+                    </li>
+                    <li>
+                        react-scripts: webpack, webpack-dev-server, babel (transpiling latest JS and JSX)
+                    </li>
+                </ul>
+                <aside class="notes">
+                    create-react-app is een node package van facebook om een basic react app te scaffolden met minimale libraries. het installeert
+                    react, react-dom, ...
+                </aside>
+            </section>
 
-                <pre><code class="javascript">
+            <section>
+                <h2>Time to get our hands dirty</h2>
+                <h3>Create a static grocery list</h3>
+                <ul>
+                    <li>create-react-app</li>
+                    <li>Remove generated code in
+                        <code>App.js</code>
+                    </li>
+                    <li>Create a
+                        <code>GroceryList</code> component that receives a list of groceries (props)</li>
+                    <li>
+                        <code>GroceryList</code> should return JSX that displays the received list of groceries</li>
+                    <li>Add state (a list of groceries) to your
+                        <code>App.js</code>, add
+                        <code>GroceryList</code> as a child of the
+                        <code>App</code> component, and pass it the list of groceries as an attribute</li>
+                    <li>Don't forget to add a
+                        <code>key</code> attribute to list items</li>
+                </ul>
+            </section>
+            <section>
+                <section>
+                    <h2>Forms</h2>
+
+                    <pre><code class="javascript">
 handleSubmit = (e) => {
     e.preventDefault()
     // do something (change state, make REST call, etc.)
@@ -444,10 +516,10 @@ render() {
     )
 }
                 </code></pre>
-            </section>
-            <section>
-                <h2>Controlled components</h2>
-                <pre><code class="javascript">
+                </section>
+                <section>
+                    <h2>Controlled components</h2>
+                    <pre><code class="javascript">
 class NameForm extends Component {
     state = { email: ''}
     handleChange = (event) => {
@@ -460,30 +532,36 @@ class NameForm extends Component {
     }
 }
             </code></pre>
-                <ul>
-                    <li>Validation</li>
-                    <li>Disabling submit</li>
-                    <li>Require certain input format</li>
-                    <li>...</li>
-                    <li>"Single source of truth"</li>
-                </ul>
-                <aside class="notes">
-                    Normaal gezien leeft form state in de DOM, en het kan zijn dat je het standaard form gedrag wilt behouden.
-                    Maar dit wil zeggen dat je op submit naar een ander pagina gestuurd wordt en dat je niet veel flexibiliteit hebt.
-                    <br />We kunnen meer flexibiliteit krijgen door de <strong>form state los te koppelen en te managen vanuit de applicatiei</strong>.
-                    op die mannier kun je gemakkelijk bepalen wat te doen op submit, of uitgebreide validatie toevoegen, de submit knop disablen.
-                    <br/><br/>Een van de belangrijkste redenen om deze loskoppeling te doen is om een single source of truth te hebben.
-                    Op deze mannier wordt alle mutable component state op 1 plek bewaard en wordt de component enkel geupdate met de setState methode.
-                    <br/><br/>Om dit te verkrijgen linken we de `value` van onze form aan de state. De enige mannier dat nu de `value` kan geupdate worden is als de state update! Daarom maken we ook een `onChange` handle die de state zal updaten
-                </aside>
+                    <ul>
+                        <li>Validation</li>
+                        <li>Disabling submit</li>
+                        <li>Require certain input format</li>
+                        <li>...</li>
+                        <li>"Single source of truth"</li>
+                    </ul>
+                    <aside class="notes">
+                        Normaal gezien leeft form state in de DOM, en het kan zijn dat je het standaard form gedrag wilt behouden. Maar dit wil zeggen
+                        dat je op submit naar een ander pagina gestuurd wordt en dat je niet veel flexibiliteit hebt.
+                        <br />We kunnen meer flexibiliteit krijgen door de
+                        <strong>form state los te koppelen en te managen vanuit de applicatiei</strong>. op die mannier kun je gemakkelijk
+                        bepalen wat te doen op submit, of uitgebreide validatie toevoegen, de submit knop disablen.
+                        <br/>
+                        <br/>Een van de belangrijkste redenen om deze loskoppeling te doen is om een single source of truth te
+                        hebben. Op deze mannier wordt alle mutable component state op 1 plek bewaard en wordt de component
+                        enkel geupdate met de setState methode.
+                        <br/>
+                        <br/>Om dit te verkrijgen linken we de `value` van onze form aan de state. De enige mannier dat nu de
+                        `value` kan geupdate worden is als de state update! Daarom maken we ook een `onChange` handle die
+                        de state zal updaten
+                    </aside>
+                </section>
             </section>
-        </section>
-        <section>
-            <h2>Lifting the state</h2>
-            Often, several components need to reflect the same changing data.
-            We recommend lifting the shared state up to their closest common ancestor.
-            It's important to take into account the scope of <code>this</code>!
-            <pre><code class="javascript">
+            <section>
+                <h2>Lifting the state</h2>
+                Often, several components need to reflect the same changing data. We recommend lifting the shared state up to their closest
+                common ancestor. It's important to take into account the scope of
+                <code>this</code>!
+                <pre><code class="javascript">
 class App extends Component {
     constructor(props) {
         super(props);
@@ -516,81 +594,94 @@ class ButtonComponent extends React.Component {
     }
 }
             </code></pre>
-        </section>
-        <section>
-            <h2>Time to get our hands dirty - Pt. 2</h2>
-            <ul>
-                <li>Create a CreateGrocery component with a form (controlled component)</li>
-                <li>Submitting the form should update the state of our <code>App.js</code></li>
-                <li>Give the grocery item a unique <code>id</code> like the <code>Date.now()</code></li>
-                <li>After submitting the input field should be cleared</li>
-            </ul>
-        </section>
-        <section>
-            <h2>For the strevers</h2>
-            <ul>
-                <li>Create a delete functionality</li>
-                <li>Sort functionality</li>
-                <li>...</li>
-            </ul>
-        </section>
-        <!-- **********
+
+            <aside class="notes">
+                    - Verschilllende components met zelfde data<br/>
+                    - State omhoog duwen<br/>
+                    - Children krijgen props<br/>
+                    - Voorbeeldje uitleggen<br/>
+            </aside>
+            
+            </section>
+            <section>
+                <h2>Time to get our hands dirty - Pt. 2</h2>
+                <ul>
+                    <li>Create a CreateGrocery component with a form (controlled component)</li>
+                    <li>Submitting the form should update the state of our
+                        <code>App.js</code>
+                    </li>
+                    <li>Give the grocery item a unique
+                        <code>id</code> like the
+                        <code>Date.now()</code>
+                    </li>
+                    <li>After submitting the input field should be cleared</li>
+                </ul>
+            </section>
+            <section>
+                <h2>For the strevers</h2>
+                <ul>
+                    <li>Create a delete functionality</li>
+                    <li>Sort functionality</li>
+                    <li>...</li>
+                </ul>
+            </section>
+            <!-- **********
             DO NOT REMOVE
         ********** -->
-        <section style="text-align: left;">
-            <h2>Thanks for watching!</h2>
-            <p>Special thanks to Frédéric & Christophe for helping out 🔥🔥🔥</p>
-        </section>
+            <section style="text-align: left;">
+                <h2>Thanks for watching!</h2>
+                <p>Special thanks to Frédéric & Christophe for helping out 🔥🔥🔥</p>
+            </section>
 
-        <section style="text-align: left;" data-background="img/jworks-wallpaper-3.jpg"></section>
+            <section style="text-align: left;" data-background="img/jworks-wallpaper-3.jpg"></section>
+        </div>
     </div>
-</div>
-<script src="js/reveal.js"></script>
-<script>
-    Reveal.initialize({
-        transition: 'convex',
-        dependencies: [
-            // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
-            {
-                src: 'lib/js/classList.js',
-                condition: function () {
-                    return !document.body.classList;
+    <script src="js/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            transition: 'convex',
+            dependencies: [
+                // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+                {
+                    src: 'lib/js/classList.js',
+                    condition: function () {
+                        return !document.body.classList;
+                    }
+                },
+                // Interpret Markdown in <section> elements
+                {
+                    src: 'plugin/markdown/marked.js',
+                    condition: function () {
+                        return !!document.querySelector('[data-markdown]');
+                    }
+                },
+                {
+                    src: 'plugin/markdown/markdown.js',
+                    condition: function () {
+                        return !!document.querySelector('[data-markdown]');
+                    }
+                },
+                // Syntax highlight for <code> elements
+                {
+                    src: 'plugin/highlight/highlight.js',
+                    async: true,
+                    callback: function () {
+                        hljs.initHighlightingOnLoad();
+                    }
+                },
+                // Zoom in and out with Alt+click
+                {
+                    src: 'plugin/zoom-js/zoom.js',
+                    async: true
+                },
+                // Speaker notes
+                {
+                    src: 'plugin/notes/notes.js',
+                    async: true
                 }
-            },
-            // Interpret Markdown in <section> elements
-            {
-                src: 'plugin/markdown/marked.js',
-                condition: function () {
-                    return !!document.querySelector('[data-markdown]');
-                }
-            },
-            {
-                src: 'plugin/markdown/markdown.js',
-                condition: function () {
-                    return !!document.querySelector('[data-markdown]');
-                }
-            },
-            // Syntax highlight for <code> elements
-            {
-                src: 'plugin/highlight/highlight.js',
-                async: true,
-                callback: function () {
-                    hljs.initHighlightingOnLoad();
-                }
-            },
-            // Zoom in and out with Alt+click
-            {
-                src: 'plugin/zoom-js/zoom.js',
-                async: true
-            },
-            // Speaker notes
-            {
-                src: 'plugin/notes/notes.js',
-                async: true
-            }
-        ]
-    });
-</script>
+            ]
+        });
+    </script>
 </body>
 
 </html>
