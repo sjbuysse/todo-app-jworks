@@ -459,10 +459,20 @@ class NameForm extends Component {
             </code></pre>
                 <ul>
                     <li>Validation</li>
-                    <li>Disable submit</li>
+                    <li>Disabling submit</li>
                     <li>Require certain input format</li>
                     <li>...</li>
+                    <li>"Single source of truth"</li>
                 </ul>
+                <aside class="notes">
+                    Normaal gezien leeft form state in de DOM, en het kan zijn dat je het standaard form gedrag wilt behouden.
+                    Maar dit wil zeggen dat je op submit naar een ander pagina gestuurd wordt en dat je niet veel flexibiliteit hebt.
+                    <br />We kunnen meer flexibiliteit krijgen door de <strong>form state los te koppelen en te managen vanuit de applicatiei</strong>.
+                    op die mannier kun je gemakkelijk bepalen wat te doen op submit, of uitgebreide validatie toevoegen, de submit knop disablen.
+                    <br/><br/>Een van de belangrijkste redenen om deze loskoppeling te doen is om een single source of truth te hebben.
+                    Op deze mannier wordt alle mutable component state op 1 plek bewaard en wordt de component enkel geupdate met de setState methode.
+                    <br/><br/>Om dit te verkrijgen linken we de `value` van onze form aan de state. De enige mannier dat nu de `value` kan geupdate worden is als de state update! Daarom maken we ook een `onChange` handle die de state zal updaten
+                </aside>
             </section>
         </section>
         <section>
