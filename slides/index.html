@@ -63,7 +63,7 @@
                     <li>UI rendering engine</li>
                     <li>Pair with other technologies</li>
                     <li>Facebook (custom BSD licence -> MIT)</li>
-                    <li>React Native</li>
+                    <li>React Native (<a href="https://play.google.com/store/apps/details?id=nu.bobberttech.billtracker">example</a>)</li>
                 </ul>
                 <blockquote data-trim data-noescape>It lets you compose complex UIs from small and isolated pieces of code called “components”.
                 </blockquote>
@@ -114,10 +114,13 @@ ReactDOM.render(
                         Een react component maken is zeer simpel, je moet:
                         <ul>
                             <li>
-                                de Component class overerven
+                                de Component class vanuit de React library overerven
                             </li>
                             <li>
                                 een render() methode implementeren die HTML terug geeft
+                            </li>
+                            <li>
+                                Meegeven aan de render methode van de reactDOM library, die de component zal inpluggen in je HTML
                             </li>
                         </ul>
                     </aside>
@@ -495,6 +498,12 @@ create-react-app my-crazy-app-name
                     <li>Don't forget to add a
                         <code>key</code> attribute to list items</li>
                 </ul>
+                <aside class="notes">
+                    <ul>
+                        <li>Boodschappenlijstje applicatie</li>
+                        <li>Beginnen met gewoon een component te maken die een lijst van groceries afbeeld</li>
+                    </ul>
+                </aside>
             </section>
             <section>
                 <section>
@@ -601,7 +610,7 @@ class ButtonComponent extends React.Component {
                     - Children krijgen props<br/>
                     - Voorbeeldje uitleggen<br/>
             </aside>
-            
+
             </section>
             <section>
                 <h2>Time to get our hands dirty - Pt. 2</h2>
